@@ -21,4 +21,4 @@
 ## 4. Delivery
 
 - [x] 4.1 Add CI and GitHub Pages workflow, compatibility and usage docs; verify production build and automated tests.
-- [ ] 4.2 Create public DrSmile444/tt-font-studio, push focused commits, enable Pages, and verify deployment and hosted application.
+- [x] 4.2 Create public DrSmile444/tt-font-studio, push focused commits, enable Pages, and verify deployment and hosted application.
