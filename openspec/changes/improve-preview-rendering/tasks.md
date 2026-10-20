@@ -9,4 +9,4 @@
 ## 2. Verification and delivery
 
 - [x] 2.1 Update usage/design docs and run formatting, build, core/browser tests, accessibility, and desktop/mobile visual checks.
-- [ ] 2.2 Commit and deploy to GitHub Pages; verify CI and the hosted preview controls.
+- [x] 2.2 Commit and deploy to GitHub Pages; verify CI and the hosted preview controls.
