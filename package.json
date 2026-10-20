@@ -1,0 +1,27 @@
+{
+  "name": "tt-font-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run build && npm test && npm run test:e2e",
+    "format": "prettier --write src tests e2e index.html *.ts *.json .github/workflows/*.yml",
+    "format:check": "prettier --check src tests e2e index.html *.ts *.json .github/workflows/*.yml"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@fontsource-variable/public-sans": "^5.3.0"
+  }
+}
