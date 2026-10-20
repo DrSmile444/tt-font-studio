@@ -2,7 +2,7 @@
 
 ## 1. Project and product foundation
 
-- [ ] 1.1 Record product, naming research, design direction, and MIT attribution; verify English documents exist.
+- [x] 1.1 Record product, naming research, design direction, and MIT attribution; verify English documents exist.
 - [x] 1.2 Set up TypeScript, Vite, test tools, and locale fallback; verify install, typecheck, and locale tests pass.
 
 ## 2. Binary font core
@@ -16,10 +16,9 @@
 - [x] 3.1 Build drag-and-drop and file-picker import, font switching, original demo, errors, and changed-state recovery; verify browser import and recovery scenarios.
 - [x] 3.2 Build searchable glyph list, atlas selection, inspector, history actions, PNG replacement, PNG/JSON/FNT downloads; verify live edits and downloaded files.
 - [x] 3.3 Add editable English and Ukrainian bitmap previews, missing-character reporting, scale and background controls; verify both previews on both private fonts.
-- [ ] 3.4 Verify keyboard access, narrow layout, locale coverage, and design finish through Impeccable and UX Crux; fix actionable findings and record evidence.
+- [x] 3.4 Verify keyboard access, narrow layout, locale coverage, and design finish through Impeccable and UX Crux; fix actionable findings and record evidence.
 
 ## 4. Delivery
 
-- [ ] 4.1 Add CI and GitHub Pages workflow, compatibility and usage docs; verify production build and automated tests.
+- [x] 4.1 Add CI and GitHub Pages workflow, compatibility and usage docs; verify production build and automated tests.
 - [ ] 4.2 Create public DrSmile444/tt-font-studio, push focused commits, enable Pages, and verify deployment and hosted application.
-

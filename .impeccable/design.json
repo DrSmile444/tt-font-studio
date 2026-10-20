@@ -1,0 +1,325 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-20T19:13:39.309Z",
+  "title": "Design System: TT Font Studio",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Warm Yellow",
+        "tonalRamp": [
+          "oklch(15% 0.14 85)",
+          "oklch(26% 0.14 85)",
+          "oklch(38% 0.14 85)",
+          "oklch(49% 0.14 85)",
+          "oklch(61% 0.14 85)",
+          "oklch(73% 0.14 85)",
+          "oklch(85% 0.14 85)",
+          "oklch(95% 0.14 85)"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Pressed Gold",
+        "tonalRamp": [
+          "oklch(15% 0.14 85)",
+          "oklch(26% 0.14 85)",
+          "oklch(38% 0.14 85)",
+          "oklch(49% 0.14 85)",
+          "oklch(61% 0.14 85)",
+          "oklch(73% 0.14 85)",
+          "oklch(85% 0.14 85)",
+          "oklch(95% 0.14 85)"
+        ]
+      },
+      "accent-ink": {
+        "role": "neutral",
+        "displayName": "Dark Ochre Ink",
+        "tonalRamp": [
+          "oklch(15% 0.035 85)",
+          "oklch(26% 0.035 85)",
+          "oklch(38% 0.035 85)",
+          "oklch(49% 0.035 85)",
+          "oklch(61% 0.035 85)",
+          "oklch(73% 0.035 85)",
+          "oklch(85% 0.035 85)",
+          "oklch(95% 0.035 85)"
+        ]
+      },
+      "page": {
+        "role": "neutral",
+        "displayName": "Warm Page",
+        "tonalRamp": [
+          "oklch(15% 0.01 100)",
+          "oklch(26% 0.01 100)",
+          "oklch(38% 0.01 100)",
+          "oklch(49% 0.01 100)",
+          "oklch(61% 0.01 100)",
+          "oklch(73% 0.01 100)",
+          "oklch(85% 0.01 100)",
+          "oklch(95% 0.01 100)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Ivory Surface",
+        "tonalRamp": [
+          "oklch(15% 0.008 100)",
+          "oklch(26% 0.008 100)",
+          "oklch(38% 0.008 100)",
+          "oklch(49% 0.008 100)",
+          "oklch(61% 0.008 100)",
+          "oklch(73% 0.008 100)",
+          "oklch(85% 0.008 100)",
+          "oklch(95% 0.008 100)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Quiet Panel",
+        "tonalRamp": [
+          "oklch(15% 0.012 100)",
+          "oklch(26% 0.012 100)",
+          "oklch(38% 0.012 100)",
+          "oklch(49% 0.012 100)",
+          "oklch(61% 0.012 100)",
+          "oklch(73% 0.012 100)",
+          "oklch(85% 0.012 100)",
+          "oklch(95% 0.012 100)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Graphite Green",
+        "tonalRamp": [
+          "oklch(15% 0.012 115)",
+          "oklch(26% 0.012 115)",
+          "oklch(38% 0.012 115)",
+          "oklch(49% 0.012 115)",
+          "oklch(61% 0.012 115)",
+          "oklch(73% 0.012 115)",
+          "oklch(85% 0.012 115)",
+          "oklch(95% 0.012 115)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Olive Gray",
+        "tonalRamp": [
+          "oklch(15% 0.012 115)",
+          "oklch(26% 0.012 115)",
+          "oklch(38% 0.012 115)",
+          "oklch(49% 0.012 115)",
+          "oklch(61% 0.012 115)",
+          "oklch(73% 0.012 115)",
+          "oklch(85% 0.012 115)",
+          "oklch(95% 0.012 115)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Soft Rule",
+        "tonalRamp": [
+          "oklch(15% 0.015 110)",
+          "oklch(26% 0.015 110)",
+          "oklch(38% 0.015 110)",
+          "oklch(49% 0.015 110)",
+          "oklch(61% 0.015 110)",
+          "oklch(73% 0.015 110)",
+          "oklch(85% 0.015 110)",
+          "oklch(95% 0.015 110)"
+        ]
+      },
+      "dark": {
+        "role": "neutral",
+        "displayName": "Dark Atlas",
+        "tonalRamp": [
+          "oklch(15% 0.015 115)",
+          "oklch(26% 0.015 115)",
+          "oklch(38% 0.015 115)",
+          "oklch(49% 0.015 115)",
+          "oklch(61% 0.015 115)",
+          "oklch(73% 0.015 115)",
+          "oklch(85% 0.015 115)",
+          "oklch(95% 0.015 115)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Ochre Focus",
+        "tonalRamp": [
+          "oklch(15% 0.1 85)",
+          "oklch(26% 0.1 85)",
+          "oklch(38% 0.1 85)",
+          "oklch(49% 0.1 85)",
+          "oklch(61% 0.1 85)",
+          "oklch(73% 0.1 85)",
+          "oklch(85% 0.1 85)",
+          "oklch(95% 0.1 85)"
+        ]
+      },
+      "selection": {
+        "role": "primary",
+        "displayName": "Pale Yellow Selection",
+        "tonalRamp": [
+          "oklch(15% 0.08 90)",
+          "oklch(26% 0.08 90)",
+          "oklch(38% 0.08 90)",
+          "oklch(49% 0.08 90)",
+          "oklch(61% 0.08 90)",
+          "oklch(73% 0.08 90)",
+          "oklch(85% 0.08 90)",
+          "oklch(95% 0.08 90)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Empty-state headline",
+        "purpose": "Introduces the empty workspace."
+      },
+      "title": {
+        "displayName": "Brand title",
+        "purpose": "Compact product identity."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanations and empty-state prose."
+      },
+      "label": {
+        "displayName": "Working labels",
+        "purpose": "Buttons, panel labels, and numeric editing."
+      },
+      "data": {
+        "displayName": "Identifiers",
+        "purpose": "Unicode identifiers and measured metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "active-font-marker",
+        "value": "inset 0 2px 0 var(--accent)",
+        "purpose": "A narrow active-selection line, not decorative elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "control-feedback",
+        "value": "background 0.16s ease, border-color 0.16s ease",
+        "purpose": "Short hover feedback; disabled for reduced-motion preference."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1150px"
+      },
+      {
+        "name": "tablet",
+        "value": "850px"
+      },
+      {
+        "name": "narrow",
+        "value": "540px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The yellow import/export treatment.",
+      "html": "<button class=\"ds-primary\">Export FNT</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;gap:8px;min-height:34px;padding:7px 12px;border:1px solid #d6a82b;border-radius:var(--radius,6px);background:var(--accent,#f0c246);color:#30270e;font:580 12px \"Public Sans Variable\",sans-serif;cursor:pointer;transition:background .16s ease,border-color .16s ease}.ds-primary:hover{background:#e5b534;border-color:#a4821e}.ds-primary:active{background:#e3e2d7}.ds-primary:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A quiet native action beside a primary action.",
+      "html": "<button class=\"ds-secondary\">Open fonts</button>",
+      "css": ".ds-secondary{min-height:34px;padding:7px 12px;border:1px solid var(--line,#dcddd3);border-radius:var(--radius,6px);background:transparent;color:var(--ink,#292c25);font:580 12px \"Public Sans Variable\",sans-serif;cursor:pointer;transition:background .16s ease,border-color .16s ease}.ds-secondary:hover{background:#eeeee5;border-color:#a3a696}.ds-secondary:active{background:#e3e2d7}.ds-secondary:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}"
+    },
+    {
+      "name": "Metric input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "A native numeric field with aligned pixel units.",
+      "html": "<label class=\"ds-metric\"><span>X position</span><input type=\"number\" aria-label=\"X position\" value=\"132\" step=\"0.25\"></label>",
+      "css": ".ds-metric{display:flex;align-items:center;gap:12px;color:var(--ink,#292c25);font:12px \"Public Sans Variable\",sans-serif}.ds-metric input{width:100px;min-height:34px;padding:8px 22px 8px 9px;border:1px solid var(--line,#dcddd3);border-radius:4px;background:var(--surface,#fffef9);color:var(--ink,#292c25);font:12px \"Public Sans Variable\",sans-serif;font-variant-numeric:tabular-nums;caret-color:#846400}.ds-metric input:hover{border-color:#a3a696}.ds-metric input:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}"
+    },
+    {
+      "name": "Font rail",
+      "kind": "nav",
+      "description": "An open-file rail with a restrained active marker.",
+      "html": "<nav class=\"ds-rail\" aria-label=\"Open fonts\"><button class=\"ds-tab ds-active\" aria-current=\"page\">FONT1.FNT</button><button class=\"ds-tab\">FONT2.FNT</button></nav>",
+      "css": ".ds-rail{display:flex;gap:4px;overflow:auto;border-bottom:1px solid var(--line,#dcddd3);padding-top:2px}.ds-tab{min-height:42px;padding:9px 13px;border:1px solid transparent;border-bottom:0;border-radius:6px 6px 0 0;background:#ebece3;color:var(--ink,#292c25);font:580 12px \"Public Sans Variable\",sans-serif;cursor:pointer}.ds-tab.ds-active{background:var(--surface,#fffef9);border-color:var(--line,#dcddd3);box-shadow:inset 0 2px 0 var(--accent,#f0c246)}.ds-tab:hover{background:#eeeee5}.ds-tab:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}"
+    },
+    {
+      "name": "Format tag",
+      "kind": "chip",
+      "description": "A quiet outlined format label.",
+      "html": "<span class=\"ds-format\">.FNT</span>",
+      "css": ".ds-format{display:inline-block;padding:6px;border:1px solid #cccec0;border-radius:4px;color:#626752;font:10px \"Public Sans Variable\",sans-serif;letter-spacing:.7px}"
+    },
+    {
+      "name": "Preview container",
+      "kind": "card",
+      "description": "An ivory editing surface paired with a dark bitmap output area.",
+      "html": "<section class=\"ds-preview\"><h3>English</h3><textarea aria-label=\"English sample\">The adventure continues!</textarea><div class=\"ds-raster\">Bitmap output</div></section>",
+      "css": ".ds-preview{min-width:0;overflow:hidden;border:1px solid var(--line,#dcddd3);border-radius:6px;background:var(--surface,#fffef9);color:var(--ink,#292c25);font:12px \"Public Sans Variable\",sans-serif}.ds-preview h3{margin:12px 14px;font-size:12px;font-weight:650}.ds-preview textarea{display:block;width:calc(100% - 46px);min-height:60px;margin:10px 14px 12px;padding:8px 9px;border:1px solid var(--line,#dcddd3);border-radius:4px;background:#f9f9f3;color:var(--ink,#292c25);font:12px/1.6 \"Public Sans Variable\",sans-serif;resize:vertical}.ds-preview textarea:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}.ds-raster{min-height:84px;overflow:auto;padding:12px 16px;background:var(--dark,#22251f);color:var(--surface,#fffef9)}"
+    },
+    {
+      "name": "Selected glyph",
+      "kind": "custom",
+      "refersTo": "glyph-selected",
+      "description": "Linked character, Unicode identifier, and index in the searchable rail.",
+      "html": "<button class=\"ds-glyph\" aria-pressed=\"true\"><span>A</span><code>U+0041</code><small>32</small></button>",
+      "css": ".ds-glyph{display:grid;grid-template-columns:26px 1fr 24px;align-items:center;gap:4px;width:210px;min-height:34px;padding:4px 7px;border:1px solid #dbc57e;border-radius:4px;background:#f7e8af;color:#3b3216;text-align:left;cursor:pointer}.ds-glyph>span{text-align:center;font:17px/1 \"Public Sans Variable\",sans-serif}.ds-glyph code{font:12px ui-monospace,Consolas,monospace}.ds-glyph small{color:var(--muted,#64675e);font:12px \"Public Sans Variable\",sans-serif;text-align:right}.ds-glyph:hover{border-color:#a4821e}.ds-glyph:active{background:#e3e2d7}.ds-glyph:focus-visible{outline:3px solid var(--focus,#775800);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Type-specimen workbench",
+    "overview": "The interface is a light technical editor whose visual weight belongs to the bitmap content. Warm neutral panels keep controls legible while a dark atlas reveals transparency and letter edges. Yellow connects primary export actions with the current selection rather than competing with the font being edited.\n\nThe system is flat, compact, and precise. A single sans-serif family carries interface text; measured values and Unicode identifiers use a restrained monospace voice. Native controls and immediate linked previews make editing feel direct.",
+    "keyCharacteristics": [
+      "Warm light surfaces with a dark pixel-inspection ground.",
+      "Restrained yellow action and selection emphasis.",
+      "Aligned measurements, native fields, and visible keyboard focus.",
+      "Pixel-honest atlas and text rendering."
+    ],
+    "rules": [
+      {
+        "name": "The Linked Selection Rule",
+        "body": "Use the established yellow family to connect the active font, glyph row, and atlas bounds; keep unrelated controls neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Content First Rule",
+        "body": "Let imported bitmap letters be the expressive typography; keep interface labels in the quiet sans-serif family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Workbench Rule",
+        "body": "Prefer borders and tonal grouping to decorative elevation so the imported font remains the visual focus.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use the yellow family for primary actions and linked selection states.",
+      "Do retain native field behavior, visible focus, and the searchable alternative to atlas clicking.",
+      "Do render bitmap content without smoothing and keep overflow inside inspection surfaces.",
+      "Do use warm surfaces and hairline rules to group dense editing controls."
+    ],
+    "donts": [
+      "Don't turn the editor into a decorative game-themed dashboard.",
+      "Don't replace the imported font's visual character with expressive interface typography.",
+      "Don't add motion that interrupts repeated editing or ignores reduced-motion preference.",
+      "Don't hide an essential editing action behind dragging alone."
+    ]
+  }
+}
