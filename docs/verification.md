@@ -20,3 +20,7 @@ The first GitHub Actions verification and GitHub Pages deployment succeeded. The
 ## Limits
 
 Chromium was exercised. Screen-reader sessions, other browser engines, actual console resources, later TT formats, and exported fonts in the running game are not verified by this pass. Binary structural validity and correct browser preview are not an in-game compatibility guarantee.
+
+## Preview controls follow-up
+
+The improve-preview-rendering change adds three browser regressions: native 100% defaults and viewport-only glyph focus; background persistence with unchanged source pixels and byte-identical FNT export; and density-aware Smooth/Pixel exact rendering at device pixel ratio 2 with an allocation cap. All 11 browser scenarios pass when private fixtures are supplied; the 30 portable core tests and production build also pass. Axe checks continue to pass on empty and populated workspaces. Desktop and 390 px mobile captures were inspected for control wrapping and atlas overflow. The detector returned design-token advisories, primarily pre-existing palette/type details; the intentionally new green and white inspection backgrounds are now recorded in DESIGN.md. Unrelated pre-existing token drift was not changed.

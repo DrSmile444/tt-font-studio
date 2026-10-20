@@ -1284,3 +1284,53 @@ footer {
     font-size: 11px;
   }
 }
+
+/* Presentation backgrounds never enter the source atlas or export canvases. */
+.atlas-viewport.background-green,
+.atlas-viewport.background-green .atlas-stage {
+  background: #008000;
+}
+.atlas-viewport.background-white,
+.atlas-viewport.background-white .atlas-stage {
+  background: #ffffff;
+}
+.background-white .bound {
+  border-color: #292c2555;
+}
+.background-white .selected-bound {
+  border-color: #775800;
+}
+.atlas-background-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+.atlas-background-controls > span {
+  color: var(--muted);
+  font-size: 11px;
+  margin-right: auto;
+}
+.atlas-background-controls button {
+  min-height: 28px;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+.atlas-background-controls button[aria-pressed="true"] {
+  background: #f7e8af;
+  border-color: var(--focus);
+}
+.preview-controls {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+@media (max-width: 540px) {
+  .atlas-background-controls > span {
+    flex-basis: 100%;
+  }
+  .preview-controls {
+    justify-content: flex-start;
+  }
+}

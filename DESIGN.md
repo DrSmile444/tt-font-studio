@@ -14,6 +14,8 @@ colors:
   dark: "#22251f"
   focus: "#775800"
   selection: "#f7e8af"
+  atlas-green: "#008000"
+  atlas-white: "#ffffff"
 typography:
   headline:
     fontFamily: '"Public Sans Variable", sans-serif'
@@ -173,6 +175,12 @@ Each row aligns the character, Unicode identifier, glyph index, and edit marker.
 
 The working surface is one bordered container, not a dashboard of decorative cards. Preview containers use the same ivory surface and soft borders. The small format tag is an outlined metadata label rather than a filled badge competing with actions.
 
+### Preview Presentation
+
+The atlas opens at 100% with Fit as an explicit action. Selecting an off-screen glyph reveals it by scrolling only the atlas viewport. Under the atlas, labeled Transparency, Green, and White buttons use pressed states; these are presentation backgrounds, never exported pixels.
+
+Text previews default to Smooth at 1x and use density-aware backing buffers while retaining CSS dimensions. Pixel exact is available for sampling inspection. The native selects use explicit accessible names and wrap on narrow screens. Atlas inspection remains pixelated.
+
 ### Messages and Recovery
 
 Status notices use a quiet green-tinted surface; errors use a warm red-tinted surface with explanatory text. Both have labeled dismissal. File import has a visible drop overlay and a file-picker alternative. Destructive close actions use the browser's confirmation dialog.
@@ -183,7 +191,7 @@ Status notices use a quiet green-tinted surface; errors use a warm red-tinted su
 
 - **Do** use the yellow family for primary actions and linked selection states.
 - **Do** retain native field behavior, visible focus, and the searchable alternative to atlas clicking.
-- **Do** render bitmap content without smoothing and keep overflow inside inspection surfaces.
+- **Do** preserve pixel-exact atlas inspection, offer Smooth and Pixel exact text previews, and keep overflow inside inspection surfaces.
 - **Do** use warm surfaces and hairline rules to group dense editing controls.
 
 ### Don't:

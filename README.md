@@ -11,7 +11,9 @@ A browser-based bitmap font editor for classic LEGO TT Games PC `.FNT` resources
 - Decode embedded DDS / DXT5 atlases directly in the browser.
 - Search by character, `U+XXXX`, or glyph index; select rectangles on the atlas.
 - Edit X, Y, width/advance, shared glyph height, and baseline.
-- Preview editable English and Ukrainian samples using the actual bitmap pixels.
+- Preview editable English and Ukrainian samples using the actual bitmap pixels, with Smooth (default) and Pixel exact rendering and HiDPI support.
+- Open atlases at 100%, reveal selected off-screen glyphs automatically, and use Fit only when requested.
+- Compare the atlas against Transparency, Green, or White backgrounds without changing exported pixels.
 - Undo, redo, reset individual glyphs, and explicitly round fractional metrics.
 - Replace the atlas with a PNG of identical dimensions, with DXT5 mip encoding in a worker.
 - Download edited FNT, decoded atlas PNG, or current metrics and mappings JSON.

@@ -23,6 +23,8 @@ export const cpLabel = (cp: number) =>
 export function glyphLabel(cp: number) {
   return cp === 32 ? "␣" : cp < 32 ? cpLabel(cp) : String.fromCodePoint(cp);
 }
+export type PreviewRendering = "smooth" | "pixel";
+
 export function renderPreview(
   canvas: HTMLCanvasElement,
   source: HTMLCanvasElement,
@@ -31,6 +33,7 @@ export function renderPreview(
   scale: number,
   background: string,
   language: string,
+  rendering: PreviewRendering = "smooth",
 ): string[] {
   const ctx = canvas.getContext("2d")!;
   const mapping = new Map<number, number>();
@@ -60,11 +63,32 @@ export function renderPreview(
     60,
     Math.min(4096, lines.length * lineHeight + 24),
   );
-  canvas.width = desiredWidth;
-  canvas.height = Math.min(desiredHeight, Math.floor(8_000_000 / desiredWidth));
+  const logicalHeight = Math.min(
+    desiredHeight,
+    Math.floor(8_000_000 / desiredWidth),
+  );
+  const density = Math.min(
+    Math.max(1, window.devicePixelRatio || 1),
+    3,
+    Math.sqrt(8_000_000 / (desiredWidth * logicalHeight)),
+  );
+  canvas.width = Math.max(1, Math.floor(desiredWidth * density));
+  canvas.height = Math.max(1, Math.floor(logicalHeight * density));
+  canvas.style.width = desiredWidth + "px";
+  canvas.style.height = logicalHeight + "px";
+  canvas.style.imageRendering = rendering === "smooth" ? "auto" : "pixelated";
+  ctx.setTransform(
+    canvas.width / desiredWidth,
+    0,
+    0,
+    canvas.height / logicalHeight,
+    0,
+    0,
+  );
   ctx.fillStyle = background;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.imageSmoothingEnabled = false;
+  ctx.fillRect(0, 0, desiredWidth, logicalHeight);
+  ctx.imageSmoothingEnabled = rendering === "smooth";
+  ctx.imageSmoothingQuality = "high";
   lines.forEach((line, row) => {
     let x = 16;
     const y = 12 + row * lineHeight;

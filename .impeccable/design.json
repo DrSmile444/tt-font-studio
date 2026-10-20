@@ -312,7 +312,7 @@
     "dos": [
       "Do use the yellow family for primary actions and linked selection states.",
       "Do retain native field behavior, visible focus, and the searchable alternative to atlas clicking.",
-      "Do render bitmap content without smoothing and keep overflow inside inspection surfaces.",
+      "Do preserve pixel-exact atlas inspection, offer Smooth and Pixel exact text previews, and keep overflow inside inspection surfaces.",
       "Do use warm surfaces and hairline rules to group dense editing controls."
     ],
     "donts": [

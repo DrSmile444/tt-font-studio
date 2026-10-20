@@ -15,11 +15,13 @@ let activeId = "",
   editedOnly = false,
   zoom = 1,
   showBoxes = true;
-let textScale = 1.5,
+let textScale = 1,
   previewBg = "#22251f",
   busy = false;
 let englishText = t("enSample"),
   ukrainianText = t("ukSample");
+let previewRendering: "smooth" | "pixel" = "smooth";
+let atlasBackground = "transparency";
 let source: HTMLCanvasElement | null = null,
   sourceKey: Uint8ClampedArray | null = null;
 let message = "",
@@ -140,14 +142,25 @@ function workspace(doc: FontDocument) {
     )
     .join(
       "",
-    )}</select></div></div><div id="atlasViewport" class="atlas-viewport"><div id="atlasStage" class="atlas-stage"><canvas id="atlasCanvas" role="img" aria-label="${t("glyphCanvas")}">${t("atlasHelp")}</canvas><div id="glyphBounds" aria-hidden="true"></div></div></div><div class="atlas-status"><span>${t("atlasHelp")}</span><span id="edited-count">${t("editedCount", { count: doc.changedGlyphs })}</span></div></section>
+    )}</select></div></div><div id="atlasViewport" class="atlas-viewport background-${atlasBackground}"><div id="atlasStage" class="atlas-stage"><canvas id="atlasCanvas" role="img" aria-label="${t("glyphCanvas")}">${t("atlasHelp")}</canvas><div id="glyphBounds" aria-hidden="true"></div></div></div><div class="atlas-background-controls" role="group" aria-label="${t("atlasBackground")}"><span>${t("atlasBackground")}</span>${[
+    ["transparency", "transparency"],
+    ["green", "green"],
+    ["white", "white"],
+  ]
+    .map(
+      ([value, label]) =>
+        `<button type="button" data-atlas-background="${value}" aria-pressed="${atlasBackground === value}">${t(label as MessageKey)}</button>`,
+    )
+    .join(
+      "",
+    )}</div><div class="atlas-status"><span>${t("atlasHelp")}</span><span id="edited-count">${t("editedCount", { count: doc.changedGlyphs })}</span></div></section>
   <aside class="inspector" aria-labelledby="inspectorHeading"><div class="panel-heading"><h2 id="inspectorHeading">${t("inspector")}</h2><div class="history-buttons"><button id="undo" class="icon-button" aria-label="${t("undo")}" title="${t("undo")} (Ctrl+Z)" ${!doc.canUndo ? "disabled" : ""}>${icon("undo")}</button><button id="redo" class="icon-button" aria-label="${t("redo")}" title="${t("redo")} (Ctrl+Shift+Z)" ${!doc.canRedo ? "disabled" : ""}>${icon("redo")}</button></div></div>
   <div class="selected-glyph"><canvas id="glyphPreview" width="110" height="94" aria-label="${esc(t("selectGlyph", { char: glyphLabel(mapping.codepoint), codepoint: cpLabel(mapping.codepoint) }))}"></canvas><div><strong>${esc(glyphLabel(mapping.codepoint))}</strong><code>${cpLabel(mapping.codepoint)}</code><span>${t("index")} ${mapping.glyphIndex}</span></div></div>
   <form id="metricsForm" class="metric-form">${metricInput("metricX", "x", metric.x)}${metricInput("metricY", "y", metric.y)}${metricInput("metricWidth", "width", metric.width)}${btn("reset", "resetGlyph", undefined, "reset-button", !doc.isChanged(mapping.glyphIndex))}</form>
   ${aliases.length > 1 ? `<p class="alias-note">${t("codepoints")}: ${aliases.map((a) => esc(glyphLabel(a.codepoint))).join(", ")}</p>` : ""}
   <details id="globalSettings" class="font-settings"><summary>${t("sharedMetrics")}</summary><div>${metricInput("fontHeight", "height", doc.height)}${metricInput("baseline", "baseline", doc.baseline)}<p>${t("globalHelp")}</p><button id="normalize" title="${t("normalizeHelp")}">${t("normalize")}</button><p>${t("normalizeHelp")}</p></div></details>
   <details id="fontActions" class="font-settings"><summary>${t("more")}</summary><div>${btn("replace", "replaceAtlas")}<p>${t("replaceHelp", { width: r.atlasWidth, height: r.atlasHeight })}</p>${doc.pixels ? `<span class="replacement-label">${t("replacement")}</span>` : ""}${btn("png", "exportPng", "download")}${btn("json", "exportJson", "download")}</div></details></aside></div>
-  <section class="preview-section" aria-labelledby="previewHeading"><div class="preview-heading"><div><h2 id="previewHeading">${t("preview")}</h2><p>${t("previewHelp")}</p></div><div class="preview-controls"><label>${t("previewScale")}<select id="textScale">${[0.5, 1, 1.5, 2, 3].map((s) => `<option value="${s}" ${textScale === s ? "selected" : ""}>${s}×</option>`).join("")}</select></label><label>${t("previewBackground")}<select id="previewBg">${[
+  <section class="preview-section" aria-labelledby="previewHeading"><div class="preview-heading"><div><h2 id="previewHeading">${t("preview")}</h2><p>${t("previewHelp")}</p></div><div class="preview-controls"><label>${t("textRendering")}<select id="previewRendering" aria-label="${t("textRendering")}"><option value="smooth" ${previewRendering === "smooth" ? "selected" : ""}>${t("smooth")}</option><option value="pixel" ${previewRendering === "pixel" ? "selected" : ""}>${t("pixelExact")}</option></select></label><label>${t("previewScale")}<select id="textScale" aria-label="${t("previewScale")}">${[0.5, 1, 1.5, 2, 3].map((s) => `<option value="${s}" ${textScale === s ? "selected" : ""}>${s}×</option>`).join("")}</select></label><label>${t("previewBackground")}<select id="previewBg" aria-label="${t("previewBackground")}">${[
     ["#22251f", "dark"],
     ["#f2efe5", "light"],
     ["#806442", "warm"],
@@ -172,6 +185,7 @@ function bindWorkspace(doc: FontDocument) {
       activeId = b.dataset.font!;
       sourceKey = null;
       render();
+      revealSelectedGlyph();
     }),
   );
   document
@@ -196,6 +210,28 @@ function bindWorkspace(doc: FontDocument) {
     renderAtlas();
   });
   byId("fit").addEventListener("click", fitAtlas);
+  document
+    .querySelectorAll<HTMLButtonElement>("[data-atlas-background]")
+    .forEach((button) =>
+      button.addEventListener("click", () => {
+        atlasBackground = button.dataset.atlasBackground!;
+        byId("atlasViewport").className =
+          "atlas-viewport background-" + atlasBackground;
+        document
+          .querySelectorAll<HTMLButtonElement>("[data-atlas-background]")
+          .forEach((item) =>
+            item.setAttribute("aria-pressed", String(item === button)),
+          );
+      }),
+    );
+  byId<HTMLSelectElement>("previewRendering").addEventListener(
+    "change",
+    (event) => {
+      previewRendering = (event.target as HTMLSelectElement).value as
+        "smooth" | "pixel";
+      drawPreviews();
+    },
+  );
   byId("undo").addEventListener("click", () => {
     doc.undo();
     refresh();
@@ -326,6 +362,7 @@ function select(index: number) {
   doc.selected = index;
   refresh();
   byId("glyph-" + index)?.focus({ preventScroll: true });
+  revealSelectedGlyph();
 }
 function renderList() {
   const doc = active();
@@ -440,6 +477,7 @@ function drawPreviews() {
       textScale,
       previewBg,
       t(key),
+      previewRendering,
     );
     const el = byId("missing-" + lang);
     el.textContent = missing.length
@@ -450,6 +488,7 @@ function drawPreviews() {
 }
 async function importFiles(files: FileList | File[] | null) {
   if (!files?.length || busy) return;
+  const previousId = activeId;
   busy = true;
   notify(t("loading"));
   // Yield to paint the busy status before decoding each resource.
@@ -470,9 +509,14 @@ async function importFiles(files: FileList | File[] | null) {
     }
   }
   busy = false;
-  render();
+  if (activeId !== previousId) {
+    zoom = 1;
+    render();
+  } else {
+    refresh();
+  }
   if (!isError) notify(t("opened", { name: active()?.resource.name ?? "" }));
-  if (active()) fitAtlas();
+  if (active() && activeId !== previousId) revealSelectedGlyph();
 }
 async function loadDemo() {
   if (busy) return;
@@ -481,8 +525,8 @@ async function loadDemo() {
     const doc = await createDemo();
     docs.push(doc);
     activeId = doc.id;
+    zoom = 1;
     render();
-    fitAtlas();
     notify(t("demoLoaded") + " " + t("demoNote"));
   } catch (error) {
     report(error);
@@ -683,3 +727,21 @@ function updateMetricViews(doc: FontDocument) {
     tab.append(el);
   } else if (!doc.dirty) dot?.remove();
 }
+
+/** Reveal selection within the atlas only; never scroll the page or change zoom. */
+function revealSelectedGlyph() {
+  const port = document.getElementById("atlasViewport");
+  const selected = document.querySelector<HTMLElement>(".selected-bound");
+  if (!port || !selected) return;
+  const viewport = port.getBoundingClientRect(),
+    bounds = selected.getBoundingClientRect();
+  const left = viewport.left + port.clientLeft,
+    top = viewport.top + port.clientTop;
+  if (bounds.left < left || bounds.right > left + port.clientWidth)
+    port.scrollLeft +=
+      (bounds.left + bounds.right) / 2 - left - port.clientWidth / 2;
+  if (bounds.top < top || bounds.bottom > top + port.clientHeight)
+    port.scrollTop +=
+      (bounds.top + bounds.bottom) / 2 - top - port.clientHeight / 2;
+}
+window.addEventListener("resize", drawPreviews);
